@@ -28,6 +28,7 @@ function solution(N, M, K, testCase) {
       let nextX = x + dx[i];
 
       if (nextX < 0 || nextX >= N || nextY < 0 || nextY >= M) continue;
+
       if (!isVisit[nextY][nextX] && matrix[nextY][nextX] === 1) {
         isVisit[nextY][nextX] = true;
         queue.push([nextY, nextX]);
@@ -54,6 +55,7 @@ function solution(N, M, K, testCase) {
       if (matrix[i][j] === 1 && !isVisit[i][j]) {
         count++;
         queue.push([i, j]);
+        isVisit[i][j] = true;
         while (queue.length) {
           bfs(...queue.shift());
         }
